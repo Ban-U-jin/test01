@@ -19,12 +19,12 @@ public class Calculator extends JFrame {
 	private static float GBP_RATE = 1444.35F;
 	private static float EUR_RATE = 1295.97F;
 			
-	JLabel title = new JLabel("달러");
+	JLabel title = new JLabel("�떖�윭");
 	JTextField operand1 = new JTextField(10);
-	String[] opExpression = {"선택","달러", "엔화", "위안","파운드","유로"};
+	String[] opExpression = {"�꽑�깮","�떖�윭", "�뿏�솕", "�쐞�븞","�뙆�슫�뱶","�쑀濡�"};
 	JComboBox<String> opSelection = new JComboBox<String>(opExpression);
-	JTextField txtResult = new JTextField(10);
-	JButton btnClear = new JButton("다시입력");
+	JTextField txtResult = new JTextField(102171818);
+	JButton btnClear = new JButton("�떎�떆�엯�젰");
 	
 	public Calculator() {
 		Container contentPane = this.getContentPane();
@@ -37,7 +37,7 @@ public class Calculator extends JFrame {
 	private void startFrame(){
 		opSelection.addActionListener(new SelectionHandler());
 		btnClear.addActionListener(new SelectionHandler());
-		this.setTitle("환율 계산하기");
+		this.setTitle("�솚�쑉 怨꾩궛�븯湲�");
 		this.add(title);
 		this.add(operand1);
 		this.add(opSelection);
@@ -63,15 +63,15 @@ public class Calculator extends JFrame {
 		float won=Float.parseFloat(operand1.getText());
 		String result=null;
 		String operator=opSelection.getSelectedItem().toString();
-		if(operator.equals("달러")){
+		if(operator.equals("�떖�윭")){
 			result=String.format("%.6f",won/USD_RATE);
-		}else if(operator.equals("엔화")){
+		}else if(operator.equals("�뿏�솕")){
 			result=String.format("%.6f",won/JPY_RATE);
-		}else if(operator.equals("위안")){
+		}else if(operator.equals("�쐞�븞")){
 			result=String.format("%.6f",won/CNY_RATE);
-		}else if(operator.equals("파운드")) {
+		}else if(operator.equals("�뙆�슫�뱶")) {
 			result=String.format("%.6f",won/GBP_RATE);
-		}else if(operator.equals("유로")) {
+		}else if(operator.equals("�쑀濡�")) {
 			result=String.format("%.6f",won/EUR_RATE);
 		}
 		txtResult.setText(result);
